@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 
-function Input({ item, changeEvent }: { item: any; changeEvent: any }) {
+function FormInput({ item, changeEvent }: { item: any; changeEvent: any }) {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="flex flex-col relative">
@@ -33,7 +33,7 @@ function Input({ item, changeEvent }: { item: any; changeEvent: any }) {
   );
 }
 
-function Button({
+function FormButton({
   text,
   textSize,
   bgColor = "primary",
@@ -58,4 +58,4 @@ function Button({
   );
 }
 
-export { Input, Button };
+export { FormInput, FormButton };

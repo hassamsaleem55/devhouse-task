@@ -1,4 +1,4 @@
-import { Button } from "../components/Form";
+import { FormButton } from "../components/Form";
 import Modal from "../components/Modal";
 
 function PasswordResetReqSent({
@@ -25,7 +25,7 @@ function PasswordResetReqSent({
           </p>
         </div>
 
-        <Button text="Reset Now" bgColor="black" clickEvent={resetNowClick} />
+        <FormButton text="Reset Now" bgColor="black" clickEvent={resetNowClick} />
       </div>
     </Modal>
   );

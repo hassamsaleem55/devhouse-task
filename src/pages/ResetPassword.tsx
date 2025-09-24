@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Modal from "../components/Modal";
-import { Input, Button } from "../components/Form";
+import { FormInput, FormButton } from "../components/Form";
 
 function ResetPassword({
   isModalOpen,
@@ -38,7 +38,7 @@ function ResetPassword({
     >
       <div className="space-y-6">
         {formFields.map((item, index) => (
-          <Input
+          <FormInput
             key={index}
             item={item}
             changeEvent={(e: any) => handleChange(index, e.target.value)}
@@ -55,7 +55,7 @@ function ResetPassword({
           </div>
         </div>
 
-        <Button text="Reset" bgColor="black" clickEvent={resetClick} />
+        <FormButton text="Reset" bgColor="black" clickEvent={resetClick} />
       </div>
     </Modal>
   );

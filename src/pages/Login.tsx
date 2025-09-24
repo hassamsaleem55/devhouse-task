@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Modal from "../components/Modal";
-import { Input, Button } from "../components/Form";
+import { FormInput, FormButton } from "../components/Form";
 
 function Login({
   isModalOpen,
@@ -27,7 +27,7 @@ function Login({
     <Modal title="Login" isOpen={isModalOpen} onClose={closeModal}>
       <div className="space-y-6">
         {formFields.map((item, index) => (
-          <Input
+          <FormInput
             key={index}
             item={item}
             changeEvent={(e: any) => handleChange(index, e.target.value)}
@@ -53,7 +53,7 @@ function Login({
           </button>
         </div>
 
-        <Button text="Login" bgColor="black" />
+        <FormButton text="Login" bgColor="black" />
       </div>
     </Modal>
   );

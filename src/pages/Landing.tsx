@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CompanyLogo from "../components/CompanyLogo";
-import { Button } from "../components/Form";
+import { FormButton } from "../components/Form";
 import Login from "./Login";
 import ForgotPassword from "./ForgotPassword";
 import PasswordResetReqSent from "./PasswordResetReqSent";
@@ -43,7 +43,7 @@ function Landing() {
           <p className="text-2xl sm:text-5xl">Welcome to Admin Portal of</p>
           <p className="font-bold text-2xl sm:text-5xl mt-2">Fantasy Buzz</p>
           <div className="mt-6 sm:mt-14">
-            <Button
+            <FormButton
               text="Login"
               textSize="text-base sm:text-xl"
               width="px-12 sm:px-30"
