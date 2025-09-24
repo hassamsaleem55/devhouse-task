@@ -39,7 +39,7 @@ function Landing() {
         </header>
 
         {/* Main Content */}
-        <main className="flex flex-col flex-1 items-center justify-center text-center">
+        <main className="flex flex-col items-center justify-center text-center mt-45">
           <p className="text-2xl sm:text-5xl">Welcome to Admin Portal of</p>
           <p className="font-bold text-2xl sm:text-5xl mt-2">Fantasy Buzz</p>
           <div className="mt-6 sm:mt-14">
