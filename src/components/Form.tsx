@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 
+const bgColorClasses: Record<string, string> = {
+  black: "bg-black",
+  primary: "bg-primary",
+};
+
 function FormInput({ item, changeEvent }: { item: any; changeEvent: any }) {
   const [showPassword, setShowPassword] = useState(false);
   return (
@@ -35,7 +40,7 @@ function FormInput({ item, changeEvent }: { item: any; changeEvent: any }) {
 
 function FormButton({
   text,
-  textSize,
+  textSize = "text-sm",
   bgColor = "primary",
   width = "w-full",
   height = "py-2",
@@ -51,7 +56,7 @@ function FormButton({
   return (
     <button
       onClick={clickEvent}
-      className={`bg-${bgColor} ${width} ${height} ${textSize} text-white rounded-4xl cursor-pointer`}
+      className={`${bgColorClasses[bgColor]} ${width} ${height} ${textSize} text-white rounded-4xl cursor-pointer`}
     >
       {text}
     </button>
