@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Modal from "../components/Modal";
+import { Input, Button } from "../components/Form";
 
 function ForgotPassword({
   isModalOpen,
@@ -11,11 +12,7 @@ function ForgotPassword({
   resetPasswordClick: () => void;
 }) {
   const [formFields, setFormFields] = useState([
-    {
-      label: "Email*",
-      type: "text",
-      value: "",
-    },
+    { label: "Email*", type: "text", value: "" },
   ]);
 
   const handleChange = (index: number, newValue: string) => {
@@ -25,37 +22,24 @@ function ForgotPassword({
   };
 
   return (
-    <Modal isOpen={isModalOpen} onClose={closeModal}>
-      <div className="py-4">
-        <h2 className="text-black text-5xl font-semibold mb-6">
-          Forgot Your Password?
-        </h2>
-        <div className="space-y-8 mt-10">
-          <h2 className="text-sm text-gray-700">
-            Enter your email address and we'll send you a reset link۔
-          </h2>
-          {formFields.map((item, index) => (
-            <div key={index} className="flex flex-col relative">
-              <label className="mb-1 text-sm font-medium text-gray-500">
-                {item.label}
-              </label>
-              <input
-                type={item.type}
-                className="w-full border border-gray-300 rounded-4xl py-2 px-4 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent"
-                value={item.value}
-                onChange={(e) => handleChange(index, e.target.value)}
-              />
-            </div>
-          ))}
+    <Modal
+      title="Forgot Your Password?"
+      isOpen={isModalOpen}
+      onClose={closeModal}
+    >
+      <p className="text-xxs sm:text-xs text-gray-700 mb-6">
+        Enter your email address and we'll send you a reset link.
+      </p>
+      <div className="space-y-6 sm:space-y-10">
+        {formFields.map((item, index) => (
+          <Input
+            key={index}
+            item={item}
+            changeEvent={(e: any) => handleChange(index, e.target.value)}
+          />
+        ))}
 
-          <button
-            type="button"
-            className="w-full bg-black text-white cursor-pointer mt-4 py-3 rounded-4xl font-semibold hover:opacity-90 transition"
-            onClick={resetPasswordClick}
-          >
-            Send
-          </button>
-        </div>
+        <Button text="Send" bgColor="black" clickEvent={resetPasswordClick} />
       </div>
     </Modal>
   );

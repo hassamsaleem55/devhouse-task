@@ -4,5 +4,5 @@
   --color-basic: #010b28;
   --color-primary: #12bab0;
   --font-basic: "Poppins";
-  --text-small: 11px; /* ✅ works */
+  --text-xxs: 11px;
 }
