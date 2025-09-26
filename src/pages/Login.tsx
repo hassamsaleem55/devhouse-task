@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 import Modal from "../components/Modal";
 import { FormInput, FormButton } from "../components/Form";
 
@@ -42,18 +43,20 @@ function Login({
               onChange={(e) => setRememberMe(e.target.checked)}
               className="accent-primary rounded"
             />
-            <span className="text-gray-700">Remember me</span>
+            <span className="text-gray-700">{`Remember me`}</span>
           </label>
           <button
             type="button"
             className="text-primary hover:underline cursor-pointer"
             onClick={forgotPasswordClick}
           >
-            Forgot my password
+            {`Forgot my password`}
           </button>
         </div>
 
-        <FormButton text="Login" bgColor="black" />
+        <Link to="/contests">
+          <FormButton text="Login" textSize="text-base" bgColor="black" />
+        </Link>
       </div>
     </Modal>
   );
