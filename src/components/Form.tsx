@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, PlusIcon } from "lucide-react";
 
 const bgColorClasses: Record<string, string> = {
   black: "bg-black",
@@ -63,4 +63,13 @@ function FormButton({
   );
 }
 
-export { FormInput, FormButton };
+function BtnCreateNew({label}: {label: string}) {
+  return (
+    <button className="flex items-center gap-2 px-5 py-2 bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition cursor-pointer">
+      <PlusIcon size={16} />
+      Create New {label}
+    </button>
+  );
+}
+
+export { FormInput, FormButton, BtnCreateNew };
