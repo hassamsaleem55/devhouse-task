@@ -20,7 +20,7 @@ function PageLayout({
           </Link>
         ) : null}
       </header>
-      <main className="mt-4">{children}</main>
+      <main className="mt-4 mb-8">{children}</main>
     </>
   );
 }
