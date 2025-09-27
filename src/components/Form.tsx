@@ -21,9 +21,11 @@ function FormInput({ item, changeEvent }: { item: any; changeEvent: any }) {
               : "password"
             : item.type
         }
-        className="w-full text-sm border border-gray-300 rounded-4xl py-1 px-4 pr-10 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent"
+        className={`w-full text-sm border border-gray-300 rounded-4xl py-1 px-4 pr-10 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-transparent
+          ${item.label === "" ? "mt-4" : "mt-0"}`}
         value={item.value}
         onChange={changeEvent}
+        placeholder={item.placeholder || ""}
       />
       {item.type === "password" && (
         <button
@@ -63,11 +65,11 @@ function FormButton({
   );
 }
 
-function BtnCreateNew({label}: {label: string}) {
+function BtnCreateNew({ text }: { text: string }) {
   return (
-    <button className="flex items-center gap-2 px-5 py-2 bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition cursor-pointer">
+    <button className="flex items-center gap-1 px-4 py-2 bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition cursor-pointer">
       <PlusIcon size={16} />
-      Create New {label}
+      {text}
     </button>
   );
 }

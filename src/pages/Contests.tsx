@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { BtnCreateNew } from "../components/Form";
+import { Link } from "react-router";
+import PageLayout from "../layouts/PageLayout";
 import ContestCard from "../components/ContestCard";
+import { contestsData } from "../store/Contests.data";
 
 function Contests() {
   const tabs = [
@@ -9,23 +11,11 @@ function Contests() {
   ];
 
   const [activeTab, setActiveTab] = useState<string>("archived");
-  const renderContests = (count: number = 5) => {
-    const cards = [];
-    for (let index = 1; index <= count; index++) {
-      cards.push(<ContestCard key={index} contestNumber={index} />);
-    }
-    return cards;
-  };
-
   return (
-    <>
-      {/* Header */}
-      <div className="flex items-center justify-between mb-2">
-        <h1 className="text-3xl font-bold">Contests</h1>
-        <BtnCreateNew label="Contest" />
-      </div>
-
-      {/* Tabs */}
+    <PageLayout
+      pageTitle="Contests"
+      btn={{ text: "Create New Contest", navigate: "/contests/new" }}
+    >
       <div className="tabs-container">
         {/* Tab Headers */}
         <div className="flex gap-8 mb-4">
@@ -33,10 +23,10 @@ function Contests() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`text-lg font-semibold border-b-2 transition-colors cursor-pointer ${
+              className={`text-md font-semibold border-b-2 transition-colors cursor-pointer ${
                 activeTab === tab.id
-                  ? "border-base font-bold text-base"
-                  : "border-transparent text-gray-500 hover:text-basic hover:border-basic"
+                  ? "text-gray-900 border-gray-900"
+                  : " border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-700"
               }`}
             >
               {tab.label}
@@ -46,20 +36,34 @@ function Contests() {
 
         {/* Tab Content */}
         <div className="tab-content-area space-y-4">
-          {activeTab === "ongoing" && (
-            <div id="ongoing" className="tab-pane">
-              {renderContests(5)}
-            </div>
-          )}
-
-          {activeTab === "archived" && (
-            <div id="archived" className="tab-pane">
-              {renderContests(3)} {/* Example: fewer archived contests */}
-            </div>
-          )}
+          {contestsData.map((item: any) => {
+            if (item.category === activeTab) {
+              return (
+                <div
+                  key={item.category}
+                  id={item.category}
+                  className="tab-pane"
+                >
+                  {item.data.map((contest: any, index: number) => (
+                    <Link
+                      to={`details/${item.category}/${contest.contestNumber}`}
+                      key={index}
+                    >
+                      <ContestCard
+                        heading={`Contest ${contest.contestNumber}`}
+                        date={contest.date}
+                        description={contest.description}
+                        imageSrc={contest.imageSrc}
+                      />
+                    </Link>
+                  ))}
+                </div>
+              );
+            }
+          })}
         </div>
       </div>
-    </>
+    </PageLayout>
   );
 }
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router";
-import Modal from "../components/Modal";
-import { FormInput, FormButton } from "../components/Form";
+import Modal from "./Modal";
+import { FormInput, FormButton } from "./Form";
 
 function Login({
   isModalOpen,

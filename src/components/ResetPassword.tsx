@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Modal from "../components/Modal";
-import { FormInput, FormButton } from "../components/Form";
+import Modal from "./Modal";
+import { FormInput, FormButton } from "./Form";
 
 function ResetPassword({
   isModalOpen,

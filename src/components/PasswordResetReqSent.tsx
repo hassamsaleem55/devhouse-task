@@ -1,5 +1,5 @@
-import { FormButton } from "../components/Form";
-import Modal from "../components/Modal";
+import { FormButton } from "./Form";
+import Modal from "./Modal";
 
 function PasswordResetReqSent({
   isModalOpen,

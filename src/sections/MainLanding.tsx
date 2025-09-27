@@ -1,6 +1,6 @@
 import { FormButton } from "../components/Form";
 
-function LandingMain({ openModal }: { openModal: (modal: string) => void }) {
+function MainLanding({ openModal }: { openModal: (modal: string) => void }) {
   return (
     <main className="flex flex-col items-center justify-center text-center mt-50 sm:mt-45">
       <p className="text-2xl sm:text-5xl">{`Welcome to Admin Portal of`}</p>
@@ -18,4 +18,4 @@ function LandingMain({ openModal }: { openModal: (modal: string) => void }) {
   );
 }
 
-export default LandingMain;
+export default MainLanding;

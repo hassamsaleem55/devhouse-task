@@ -1,6 +1,6 @@
 import CompanyLogo from "../components/CompanyLogo";
 
-function LandingHeader({ openModal }: { openModal: (modal: string) => void }) {
+function MainHeader({ openModal }: { openModal: (modal: string) => void }) {
   return (
     <header className="grid grid-cols-12 items-center px-4 sm:px-8 md:px-16 pt-6 sm:pt-10 text-xl">
       <div className="col-span-6">
@@ -18,4 +18,4 @@ function LandingHeader({ openModal }: { openModal: (modal: string) => void }) {
   );
 }
 
-export default LandingHeader;
+export default MainHeader;

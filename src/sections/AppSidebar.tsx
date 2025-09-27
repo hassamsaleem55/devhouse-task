@@ -1,7 +1,8 @@
 import { Link } from "react-router";
 import CompanyLogo from "../components/CompanyLogo";
+import { BtnCreateNew } from "../components/Form";
 
-function Sidebar() {
+function AppSidebar() {
   const LINKS = [
     {
       id: 1,
@@ -29,9 +30,13 @@ function Sidebar() {
       <div className="mb-20">
         <CompanyLogo />
       </div>
-
+      <div className="mb-8 text-xs">
+        <Link to="/contests/new">
+          <BtnCreateNew text="Create New Contest" />
+        </Link>
+      </div>
       {/* Nav (later expandable) */}
-      <nav className="flex-1 space-y-4 text-sm">
+      <nav className="flex-1 space-y-4 text-xs">
         {LINKS.map((navLink) => {
           return (
             <div
@@ -40,7 +45,14 @@ function Sidebar() {
             >
               {navLink.items.map((item, index) => {
                 return (
-                  <div key={index} className={item.active ? "font-semibold" : "font-normal text-gray-400"}>
+                  <div
+                    key={index}
+                    className={
+                      item.active
+                        ? "font-semibold"
+                        : "font-normal text-gray-400"
+                    }
+                  >
                     <Link
                       to={item.to}
                       className="block px-2 py-2 rounded hover:bg-primary hover:text-white"
@@ -58,4 +70,4 @@ function Sidebar() {
   );
 }
 
-export default Sidebar;
+export default AppSidebar;
